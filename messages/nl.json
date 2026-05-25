@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over",
+    "method": "Werkwijze",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "quote": "Offerte aanvragen",
+    "call": "Bel: 06-23128419"
+  },
+  "hero": {
+    "welcome": "Welkom bij",
+    "name": "het Tolhek",
+    "tagline": "Vakmanschap in hout sinds 2003",
+    "cta": "Bekijk ons werk",
+    "quote": "Offerte aanvragen"
+  },
+  "about": {
+    "title": "Over het Tolhek",
+    "subtitle": "Meer dan 20 jaar vakmanschap",
+    "intro": "Het Tolhek vervaardigt meubels en allerlei andere objecten van hout en plaatmateriaal, volledig naar wens van de klant.",
+    "description": "Of het nu gaat om een keuken, een tafel, een nieuwe balie, een inbouwkast of iets heel specifieks — bij het Tolhek kunt u terecht. Elk project wordt met zorg en aandacht voor detail uitgevoerd.",
+    "owner": "Het Tolhek is een eenmanszaak van Heije Hilvers sinds 2003. Sinds 2022 is de werkplaats gevestigd in Bakkeveen.",
+    "experience": "22+ jaar ervaring",
+    "custom": "100% maatwerk",
+    "local": "Gevestigd in Bakkeveen"
+  },
+  "method": {
+    "title": "Werkwijze",
+    "subtitle": "Van idee tot realisatie",
+    "intro": "Al het werk wordt in opdracht gemaakt. Voor maatwerk wordt een afspraak gemaakt om de situatie te bekijken en de wensen en mogelijkheden te bespreken.",
+    "step1_title": "Kennismaking",
+    "step1_desc": "We maken een afspraak om de situatie te bekijken en uw wensen en mogelijkheden te bespreken.",
+    "step2_title": "Ontwerp",
+    "step2_desc": "Aan de hand hiervan wordt een 3D tekening gemaakt zodat u een goed beeld krijgt van het eindresultaat.",
+    "step3_title": "Prijsopgave",
+    "step3_desc": "Als deze naar wens is wordt een geheel vrijblijvende prijsopgave gemaakt.",
+    "step4_title": "Realisatie",
+    "step4_desc": "Na akkoord gaan we aan de slag. Het eindresultaat wordt met vakmanschap en oog voor detail opgeleverd."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Een selectie van ons werk",
+    "intro": "Hieronder staat een selectie van objecten die gemaakt zijn om een idee van de mogelijkheden te krijgen.",
+    "cta": "Neem gerust contact op voor vragen of meer informatie.",
+    "categories": {
+      "all": "Alles",
+      "kitchens": "Keukens",
+      "furniture": "Meubels",
+      "custom": "Maatwerk"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Neem contact met ons op",
+    "form_title": "Stuur een bericht",
+    "name": "Naam",
+    "email": "E-mailadres",
+    "phone": "Telefoonnummer",
+    "city": "Woonplaats",
+    "message": "Bericht",
+    "send": "Verstuur",
+    "sending": "Versturen...",
+    "success": "Bericht succesvol verzonden!",
+    "error": "Er ging iets mis. Probeer het opnieuw.",
+    "address_title": "Adressen",
+    "invoice_address": "Faktuuradres",
+    "workshop_address": "Werkplaats adres",
+    "phone_label": "Telefoonnummer",
+    "email_label": "Email"
+  },
+  "quote": {
+    "title": "Offerte aanvragen",
+    "subtitle": "Vraag vrijblijvend een offerte aan",
+    "intro": "Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met u op om uw wensen te bespreken.",
+    "name": "Naam",
+    "email": "E-mailadres",
+    "phone": "Telefoonnummer",
+    "city": "Woonplaats",
+    "project_type": "Type project",
+    "project_types": {
+      "kitchen": "Keuken",
+      "furniture": "Meubel",
+      "closet": "Inbouwkast",
+      "counter": "Balie",
+      "other": "Anders"
+    },
+    "description": "Omschrijving van uw wensen",
+    "send": "Offerte aanvragen",
+    "sending": "Verzenden...",
+    "success": "Uw offerte aanvraag is succesvol verzonden! We nemen zo snel mogelijk contact met u op.",
+    "error": "Er ging iets mis. Probeer het opnieuw of neem telefonisch contact op."
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden.",
+    "tagline": "Voor alles van hout"
+  }
+}

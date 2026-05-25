@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "method": "Method",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "quote": "Request quote",
+    "call": "Call: 06-23128419"
+  },
+  "hero": {
+    "welcome": "Welcome to",
+    "name": "het Tolhek",
+    "tagline": "Woodworking craftsmanship since 2003",
+    "cta": "View our work",
+    "quote": "Request a quote"
+  },
+  "about": {
+    "title": "About het Tolhek",
+    "subtitle": "Over 20 years of craftsmanship",
+    "intro": "Het Tolhek manufactures furniture and all kinds of other objects from wood and sheet material, fully tailored to the client's wishes.",
+    "description": "Whether it's a kitchen, a table, a new counter, a built-in closet, or something very specific — het Tolhek is your destination. Every project is executed with care and attention to detail.",
+    "owner": "Het Tolhek is a sole proprietorship of Heije Hilvers since 2003. Since 2022, the workshop has been located in Bakkeveen.",
+    "experience": "22+ years experience",
+    "custom": "100% custom made",
+    "local": "Based in Bakkeveen"
+  },
+  "method": {
+    "title": "Our Method",
+    "subtitle": "From idea to reality",
+    "intro": "All work is made to order. For custom work, an appointment is made to review the situation and discuss wishes and possibilities.",
+    "step1_title": "Introduction",
+    "step1_desc": "We schedule an appointment to review the situation and discuss your wishes and possibilities.",
+    "step2_title": "Design",
+    "step2_desc": "Based on this, a 3D drawing is made so you get a clear picture of the final result.",
+    "step3_title": "Quote",
+    "step3_desc": "If the design meets your expectations, a completely non-binding quote is prepared.",
+    "step4_title": "Realization",
+    "step4_desc": "After approval, we get to work. The final result is delivered with craftsmanship and attention to detail."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "A selection of our work",
+    "intro": "Below is a selection of objects that have been made to give you an idea of the possibilities.",
+    "cta": "Feel free to contact us for questions or more information.",
+    "categories": {
+      "all": "All",
+      "kitchens": "Kitchens",
+      "furniture": "Furniture",
+      "custom": "Custom"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "form_title": "Send a message",
+    "name": "Name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "city": "City",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Something went wrong. Please try again.",
+    "address_title": "Addresses",
+    "invoice_address": "Invoice address",
+    "workshop_address": "Workshop address",
+    "phone_label": "Phone",
+    "email_label": "Email"
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "subtitle": "Request a non-binding quote",
+    "intro": "Fill out the form below and we'll contact you as soon as possible to discuss your wishes.",
+    "name": "Name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "city": "City",
+    "project_type": "Project type",
+    "project_types": {
+      "kitchen": "Kitchen",
+      "furniture": "Furniture",
+      "closet": "Built-in closet",
+      "counter": "Counter",
+      "other": "Other"
+    },
+    "description": "Description of your wishes",
+    "send": "Request quote",
+    "sending": "Sending...",
+    "success": "Your quote request has been sent successfully! We'll contact you as soon as possible.",
+    "error": "Something went wrong. Please try again or contact us by phone."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "For everything in wood"
+  }
+}
