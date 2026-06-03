@@ -102,11 +102,11 @@ export function ContactForm({ type }: Props) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] disabled:opacity-50 text-[var(--color-bg-darker)] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all cursor-pointer"
+          className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.1em] text-[var(--color-accent)] hover:text-[var(--color-accent-light)] disabled:opacity-50 transition-colors duration-300 cursor-pointer relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-[var(--color-accent)] after:origin-left after:scale-x-100 hover:after:scale-x-0 after:transition-transform after:duration-300"
         >
           {status === "sending" ? t("sending") : t("send")}
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </button>
       </div>

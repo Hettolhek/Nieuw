@@ -16,6 +16,39 @@ export async function generateMetadata({
   };
 }
 
+function ArrowLink({
+  href,
+  children,
+  variant = "light",
+}: {
+  href: string;
+  children: React.ReactNode;
+  variant?: "light" | "dark" | "accent";
+}) {
+  const colors = {
+    light: "text-[var(--color-text-light)]/70 hover:text-[var(--color-text-light)] after:bg-[var(--color-text-light)]",
+    dark: "text-[var(--color-text)] hover:text-[var(--color-text)] after:bg-[var(--color-text)]",
+    accent: "text-[var(--color-accent)] hover:text-[var(--color-accent-light)] after:bg-[var(--color-accent)]",
+  };
+
+  return (
+    <Link
+      href={href}
+      className={`group inline-flex items-center gap-3 text-sm tracking-[0.1em] uppercase transition-colors duration-300 relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-100 hover:after:scale-x-0 after:transition-transform after:duration-300 ${colors[variant]}`}
+    >
+      {children}
+      <svg
+        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </Link>
+  );
+}
+
 export default function HomePage() {
   const t = useTranslations();
 
@@ -28,20 +61,14 @@ export default function HomePage() {
 
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto mt-10">
           <h1
-            className="text-[clamp(2rem,5vw,4rem)] leading-[1.1] text-[var(--color-text-light)] mb-8"
+            className="text-[clamp(2rem,5vw,3.5rem)] leading-[1.15] text-[var(--color-text-light)] mb-10"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             Wat begint bij een idee, groeit uit tot een prachtig meubel.
           </h1>
-          <Link
-            href="#werk"
-            className="inline-flex items-center gap-3 bg-[var(--color-accent)]/90 hover:bg-[var(--color-accent)] text-[var(--color-bg-darker)] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all"
-          >
+          <ArrowLink href="#werk" variant="light">
             {t("hero.cta")}
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+          </ArrowLink>
         </div>
       </section>
 
@@ -75,34 +102,30 @@ export default function HomePage() {
               <div className="font-medium text-sm text-[var(--color-text)]">
                 <p className="mb-1">De kracht van het Tolhek:</p>
               </div>
-              <ul className="space-y-2 text-[var(--color-text-muted)] text-[15px]">
+              <ul className="space-y-2.5 text-[var(--color-text-muted)] text-[15px]">
                 <li className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
                   Maatwerk in hout en plaatmateriaal
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
                   Keukens, meubels en inbouwkasten
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
                   Ontwerpgericht werken met oog voor detail
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
                   Van idee tot realisatie
                 </li>
               </ul>
 
-              <Link
-                href="over"
-                className="inline-flex items-center gap-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-bg-darker)] px-7 py-3 rounded-full text-sm font-medium tracking-wide transition-colors"
-              >
-                Meer over ons
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <div className="pt-2">
+                <ArrowLink href="over" variant="accent">
+                  Meer over ons
+                </ArrowLink>
+              </div>
             </div>
           </div>
         </div>
@@ -123,12 +146,9 @@ export default function HomePage() {
                 {t("portfolio.title")}
               </h2>
             </div>
-            <Link
-              href="portfolio"
-              className="text-[var(--color-text-muted)] hover:text-[var(--color-text)] text-sm underline underline-offset-4 transition-colors"
-            >
+            <ArrowLink href="portfolio" variant="dark">
               Bekijk alles
-            </Link>
+            </ArrowLink>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -169,14 +189,14 @@ export default function HomePage() {
               >
                 Vakmanschap
               </span>
-              <span className="w-2 h-2 rounded-full bg-[var(--color-accent)]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/40" />
               <span
                 className="text-5xl sm:text-7xl text-[var(--color-text-light)]/10 uppercase tracking-wider"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 Hout
               </span>
-              <span className="w-2 h-2 rounded-full bg-[var(--color-accent)]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/40" />
             </span>
           ))}
         </div>
@@ -198,7 +218,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {[1, 2, 3, 4].map((step) => (
               <div key={step}>
-                <span className="text-[var(--color-accent)] text-xs font-medium tracking-widest">
+                <span className="text-[var(--color-accent)]/60 text-xs font-medium tracking-widest">
                   0{step}
                 </span>
                 <h3 className="text-lg text-[var(--color-text)] mt-3 mb-3 font-medium">
@@ -216,7 +236,7 @@ export default function HomePage() {
       {/* ── CTA ── */}
       <section className="py-24 sm:py-32 bg-[var(--color-bg-dark)]">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.25em] mb-6 font-medium">
+          <p className="text-[var(--color-accent)]/60 text-xs uppercase tracking-[0.25em] mb-6 font-medium">
             Contact
           </p>
           <h2
@@ -228,15 +248,9 @@ export default function HomePage() {
           <p className="text-[var(--color-text-light-muted)] mb-10 text-[15px] leading-relaxed">
             {t("quote.intro")}
           </p>
-          <Link
-            href="offerte"
-            className="inline-flex items-center gap-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-bg-darker)] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-colors"
-          >
+          <ArrowLink href="offerte" variant="light">
             {t("nav.quote")}
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+          </ArrowLink>
         </div>
       </section>
     </>
