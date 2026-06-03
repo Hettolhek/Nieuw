@@ -38,63 +38,45 @@ export function ContactForm({ type }: Props) {
   }
 
   const inputClass =
-    "w-full px-4 py-3 bg-white border border-warm-200 rounded-lg text-stone-900 text-sm focus:outline-none focus:ring-2 focus:ring-warm-400/50 focus:border-warm-400 transition-colors";
+    "w-full px-0 py-3 bg-transparent border-0 border-b border-[var(--color-border)] text-[var(--color-text)] text-[15px] focus:outline-none focus:border-[var(--color-accent)] transition-colors placeholder:text-[var(--color-text-muted)]/50";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label className="block text-sm text-stone-600 mb-1.5">
+        <label className="block text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-2">
           {t("name")} *
         </label>
-        <input
-          type="text"
-          name="name"
-          required
-          className={inputClass}
-        />
+        <input type="text" name="name" required className={inputClass} />
       </div>
 
       <div>
-        <label className="block text-sm text-stone-600 mb-1.5">
+        <label className="block text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-2">
           {t("email")} *
         </label>
-        <input
-          type="email"
-          name="email"
-          required
-          className={inputClass}
-        />
+        <input type="email" name="email" required className={inputClass} />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm text-stone-600 mb-1.5">
+          <label className="block text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-2">
             {t("phone")}
           </label>
-          <input
-            type="tel"
-            name="phone"
-            className={inputClass}
-          />
+          <input type="tel" name="phone" className={inputClass} />
         </div>
         <div>
-          <label className="block text-sm text-stone-600 mb-1.5">
+          <label className="block text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-2">
             {t("city")}
           </label>
-          <input
-            type="text"
-            name="city"
-            className={inputClass}
-          />
+          <input type="text" name="city" className={inputClass} />
         </div>
       </div>
 
       {type === "quote" && (
         <div>
-          <label className="block text-sm text-stone-600 mb-1.5">
+          <label className="block text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-2">
             {qt("project_type")}
           </label>
-          <select name="project_type" className={inputClass}>
+          <select name="project_type" className={inputClass + " cursor-pointer"}>
             <option value="kitchen">{qt("project_types.kitchen")}</option>
             <option value="furniture">{qt("project_types.furniture")}</option>
             <option value="closet">{qt("project_types.closet")}</option>
@@ -105,30 +87,35 @@ export function ContactForm({ type }: Props) {
       )}
 
       <div>
-        <label className="block text-sm text-stone-600 mb-1.5">
+        <label className="block text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-2">
           {type === "quote" ? qt("description") : t("message")} *
         </label>
         <textarea
           name="message"
           required
-          rows={5}
+          rows={4}
           className={inputClass + " resize-none"}
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="w-full bg-warm-700 hover:bg-warm-600 disabled:bg-warm-400 text-warm-100 py-3 rounded-lg text-sm tracking-wide transition-colors"
-      >
-        {status === "sending" ? t("sending") : t("send")}
-      </button>
+      <div className="pt-4">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="inline-flex items-center gap-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] disabled:opacity-50 text-[var(--color-bg-darker)] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all cursor-pointer"
+        >
+          {status === "sending" ? t("sending") : t("send")}
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </button>
+      </div>
 
       {status === "success" && (
-        <p className="text-green-600 text-sm text-center">{t("success")}</p>
+        <p className="text-green-700 text-sm">{t("success")}</p>
       )}
       {status === "error" && (
-        <p className="text-red-600 text-sm text-center">{t("error")}</p>
+        <p className="text-red-700 text-sm">{t("error")}</p>
       )}
     </form>
   );

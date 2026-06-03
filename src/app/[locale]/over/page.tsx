@@ -17,13 +17,13 @@ export default function OverPage() {
 
   return (
     <>
-      <section className="pt-28 pb-16 sm:pt-36 sm:pb-20 bg-warm-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-warm-400 text-sm uppercase tracking-[0.2em] mb-3">
+      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 bg-[var(--color-bg-darker)]">
+        <div className="max-w-[1100px] mx-auto px-6 lg:px-10">
+          <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.25em] mb-4 font-medium">
             {t("subtitle")}
           </p>
           <h1
-            className="text-4xl sm:text-5xl text-warm-100"
+            className="text-4xl sm:text-5xl lg:text-6xl text-[var(--color-text-light)] leading-tight"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             {t("title")}
@@ -31,58 +31,42 @@ export default function OverPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-warm-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-stone prose-lg max-w-none">
-            <p className="text-stone-700 text-lg leading-relaxed mb-6">
-              {t("intro")}
-            </p>
-            <p className="text-stone-600 leading-relaxed mb-6">
-              {t("description")}
-            </p>
-            <p className="text-stone-600 leading-relaxed">{t("owner")}</p>
-          </div>
+      <section className="py-20 sm:py-28 bg-[var(--color-bg)]">
+        <div className="max-w-[800px] mx-auto px-6 lg:px-10">
+          <p className="text-[var(--color-text)] text-lg leading-relaxed mb-8">
+            {t("intro")}
+          </p>
+          <p className="text-[var(--color-text-muted)] leading-relaxed mb-8 text-[15px]">
+            {t("description")}
+          </p>
+          <p className="text-[var(--color-text-muted)] leading-relaxed text-[15px]">
+            {t("owner")}
+          </p>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <p
-                className="text-3xl text-warm-600 mb-2"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
+          <div className="mt-16 grid grid-cols-3 gap-8 border-t border-[var(--color-border)] pt-12">
+            <div>
+              <p className="text-4xl text-[var(--color-accent)] mb-2" style={{ fontFamily: "var(--font-serif)" }}>
                 22+
               </p>
-              <p className="text-stone-500 text-sm">{t("experience")}</p>
+              <p className="text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+                {t("experience")}
+              </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <p
-                className="text-3xl text-warm-600 mb-2"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
+            <div>
+              <p className="text-4xl text-[var(--color-accent)] mb-2" style={{ fontFamily: "var(--font-serif)" }}>
                 100%
               </p>
-              <p className="text-stone-500 text-sm">{t("custom")}</p>
+              <p className="text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+                {t("custom")}
+              </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <svg
-                className="w-8 h-8 text-warm-600 mx-auto mb-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <p className="text-stone-500 text-sm">{t("local")}</p>
+            <div>
+              <p className="text-4xl text-[var(--color-accent)] mb-2" style={{ fontFamily: "var(--font-serif)" }}>
+                3D
+              </p>
+              <p className="text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+                Ontwerp
+              </p>
             </div>
           </div>
         </div>

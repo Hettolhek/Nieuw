@@ -18,13 +18,13 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="pt-28 pb-16 sm:pt-36 sm:pb-20 bg-warm-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-warm-400 text-sm uppercase tracking-[0.2em] mb-3">
+      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 bg-[var(--color-bg-darker)]">
+        <div className="max-w-[1100px] mx-auto px-6 lg:px-10">
+          <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.25em] mb-4 font-medium">
             {t("subtitle")}
           </p>
           <h1
-            className="text-4xl sm:text-5xl text-warm-100"
+            className="text-4xl sm:text-5xl lg:text-6xl text-[var(--color-text-light)] leading-tight"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             {t("title")}
@@ -32,44 +32,27 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-warm-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-            <div>
-              <h2
-                className="text-2xl text-stone-900 mb-6"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
+      <section className="py-20 sm:py-28 bg-[var(--color-bg)]">
+        <div className="max-w-[1100px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-5 gap-16 lg:gap-24">
+            <div className="lg:col-span-3">
+              <h2 className="text-xl text-[var(--color-text)] mb-8 font-medium">
                 {t("form_title")}
               </h2>
               <ContactForm type="contact" />
             </div>
 
-            <div>
-              <h2
-                className="text-2xl text-stone-900 mb-6"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
+            <div className="lg:col-span-2">
+              <h2 className="text-xl text-[var(--color-text)] mb-8 font-medium">
                 {t("address_title")}
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 <div>
-                  <h3 className="text-sm font-medium text-warm-600 uppercase tracking-wider mb-2">
-                    {t("invoice_address")}
-                  </h3>
-                  <div className="text-stone-600 text-sm space-y-1">
-                    <p>het Tolhek</p>
-                    <p>Tolheksleane 87</p>
-                    <p>9249 NS Frieschepalen</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-medium text-warm-600 uppercase tracking-wider mb-2">
+                  <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.2em] mb-3 font-medium">
                     {t("workshop_address")}
-                  </h3>
-                  <div className="text-stone-600 text-sm space-y-1">
+                  </p>
+                  <div className="text-[var(--color-text-muted)] text-[15px] space-y-1">
                     <p>het Tolhek, werkplaats</p>
                     <p>de Bult 8 E11</p>
                     <p>9243 WE Bakkeveen</p>
@@ -77,25 +60,30 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium text-warm-600 uppercase tracking-wider mb-2">
+                  <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.2em] mb-3 font-medium">
+                    {t("invoice_address")}
+                  </p>
+                  <div className="text-[var(--color-text-muted)] text-[15px] space-y-1">
+                    <p>het Tolhek</p>
+                    <p>Tolheksleane 87</p>
+                    <p>9249 NS Frieschepalen</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.2em] mb-3 font-medium">
                     {t("phone_label")}
-                  </h3>
-                  <a
-                    href="tel:0623128419"
-                    className="text-stone-600 hover:text-warm-600 transition-colors"
-                  >
+                  </p>
+                  <a href="tel:0623128419" className="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">
                     06-23128419
                   </a>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium text-warm-600 uppercase tracking-wider mb-2">
+                  <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.2em] mb-3 font-medium">
                     {t("email_label")}
-                  </h3>
-                  <a
-                    href="mailto:info@hettolhek.nl"
-                    className="text-stone-600 hover:text-warm-600 transition-colors"
-                  >
+                  </p>
+                  <a href="mailto:info@hettolhek.nl" className="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">
                     info@hettolhek.nl
                   </a>
                 </div>

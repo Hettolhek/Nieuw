@@ -1,27 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-stone-950: #0c0a09;
-  --color-stone-900: #1c1917;
-  --color-stone-800: #292524;
-  --color-stone-700: #44403c;
-  --color-stone-600: #57534e;
-  --color-stone-500: #78716c;
-  --color-stone-400: #a8a29e;
-  --color-stone-300: #d6d3d1;
-  --color-stone-200: #e7e5e3;
-  --color-stone-100: #f5f5f4;
-  --color-stone-50: #fafaf9;
-  --color-warm-50: #faf6f1;
-  --color-warm-100: #f0e9df;
-  --color-warm-200: #e0d5c7;
-  --color-warm-300: #c4b49e;
-  --color-warm-400: #a8937a;
-  --color-warm-500: #8d7560;
-  --color-warm-600: #6e5a48;
-  --color-warm-700: #5a4839;
-  --color-warm-800: #473829;
-  --color-warm-900: #3a2e22;
+  /* Neutral warm palette — inspired by aludmetaaldesign.nl */
+  --color-bg: #e8e4df;
+  --color-bg-light: #f2efea;
+  --color-bg-dark: #3a3632;
+  --color-bg-darker: #2c2825;
+  --color-accent: #c5a572;
+  --color-accent-light: #d4bb8e;
+  --color-accent-dark: #a88b5a;
+  --color-text: #2c2825;
+  --color-text-muted: #8a8279;
+  --color-text-light: #f5f0eb;
+  --color-text-light-muted: #b8b0a6;
+  --color-border: #d4cfc8;
+  --color-border-dark: #544f4a;
   --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-serif: "DM Serif Display", Georgia, serif;
 }
@@ -31,7 +24,16 @@ html {
 }
 
 body {
-  background: var(--color-warm-50);
-  color: var(--color-stone-900);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-sans);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
 }

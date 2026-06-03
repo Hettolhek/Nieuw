@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo } from "./Logo";
 
 export function Navbar() {
@@ -11,119 +11,123 @@ export function Navbar() {
   const locale = useLocale();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const otherLocale = locale === "nl" ? "en" : "nl";
   const pathnameWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
   const switchUrl = `/${otherLocale}${pathnameWithoutLocale}`;
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
-    { href: `/${locale}`, label: t("home") },
     { href: `/${locale}/over`, label: t("about") },
     { href: `/${locale}/werkwijze`, label: t("method") },
     { href: `/${locale}/portfolio`, label: t("portfolio") },
     { href: `/${locale}/contact`, label: t("contact") },
   ];
 
-  const isActive = (href: string) => pathname === href;
+  const navBg = scrolled || !isHome
+    ? "bg-[var(--color-bg-darker)]/95 backdrop-blur-md"
+    : "bg-transparent";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-warm-900/95 backdrop-blur-sm border-b border-warm-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link href={`/${locale}`}>
-            <Logo color="#f0e9df" />
-          </Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {links.map((link) => (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <div className="flex items-center justify-between h-20">
+          {/* Left: nav links */}
+          <div className="hidden lg:flex items-center gap-8">
+            {links.slice(0, 2).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 text-sm tracking-wide transition-colors ${
-                  isActive(link.href)
-                    ? "text-warm-200"
-                    : "text-stone-400 hover:text-warm-300"
-                }`}
+                className="text-[13px] uppercase tracking-[0.15em] text-[var(--color-text-light)]/70 hover:text-[var(--color-text-light)] transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
+          {/* Center: logo */}
+          <Link href={`/${locale}`} className="absolute left-1/2 -translate-x-1/2">
+            <Logo color="var(--color-text-light)" />
+          </Link>
+
+          {/* Right: nav links + lang + cta */}
+          <div className="hidden lg:flex items-center gap-8">
+            {links.slice(2).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[13px] uppercase tracking-[0.15em] text-[var(--color-text-light)]/70 hover:text-[var(--color-text-light)] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
               href={switchUrl}
-              className="text-xs uppercase tracking-widest text-stone-500 hover:text-warm-300 transition-colors px-2 py-1 border border-stone-700 rounded"
+              className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-light)]/40 hover:text-[var(--color-text-light)]/80 transition-colors"
             >
               {otherLocale}
             </Link>
             <Link
               href={`/${locale}/offerte`}
-              className="bg-warm-700 hover:bg-warm-600 text-warm-100 text-sm px-4 py-2 rounded transition-colors"
+              className="text-[13px] uppercase tracking-[0.15em] bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-bg-darker)] px-6 py-2.5 rounded-full transition-colors font-medium"
             >
               {t("quote")}
             </Link>
           </div>
 
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-stone-300 p-2"
+            className="lg:hidden text-[var(--color-text-light)] p-2 ml-auto"
             aria-label="Menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
         </div>
       </div>
 
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-warm-900 border-t border-warm-800">
-          <div className="px-4 py-4 space-y-1">
+        <div className="lg:hidden bg-[var(--color-bg-darker)] border-t border-[var(--color-border-dark)]">
+          <div className="px-6 py-6 space-y-1">
+            <Link
+              href={`/${locale}`}
+              onClick={() => setMobileOpen(false)}
+              className="block py-3 text-sm uppercase tracking-[0.15em] text-[var(--color-text-light)]/80"
+            >
+              Home
+            </Link>
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className={`block px-3 py-2 text-sm rounded transition-colors ${
-                  isActive(link.href)
-                    ? "text-warm-200 bg-warm-800"
-                    : "text-stone-300 hover:text-warm-300 hover:bg-warm-800"
-                }`}
+                className="block py-3 text-sm uppercase tracking-[0.15em] text-[var(--color-text-light)]/80 hover:text-[var(--color-text-light)]"
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-3 flex items-center gap-3">
-              <Link
-                href={switchUrl}
-                className="text-xs uppercase tracking-widest text-stone-400 hover:text-stone-200 transition-colors px-2 py-1 border border-stone-700 rounded"
-              >
+            <div className="pt-4 flex items-center gap-4">
+              <Link href={switchUrl} className="text-xs uppercase tracking-widest text-[var(--color-text-light)]/40">
                 {otherLocale}
               </Link>
               <Link
                 href={`/${locale}/offerte`}
                 onClick={() => setMobileOpen(false)}
-                className="bg-warm-700 hover:bg-warm-600 text-warm-100 text-sm px-4 py-2 rounded transition-colors"
+                className="bg-[var(--color-accent)] text-[var(--color-bg-darker)] text-sm px-5 py-2 rounded-full font-medium"
               >
                 {t("quote")}
               </Link>

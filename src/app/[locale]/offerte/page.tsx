@@ -18,13 +18,13 @@ export default function OffertePage() {
 
   return (
     <>
-      <section className="pt-28 pb-16 sm:pt-36 sm:pb-20 bg-warm-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-warm-400 text-sm uppercase tracking-[0.2em] mb-3">
+      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 bg-[var(--color-bg-darker)]">
+        <div className="max-w-[1100px] mx-auto px-6 lg:px-10">
+          <p className="text-[var(--color-accent)] text-xs uppercase tracking-[0.25em] mb-4 font-medium">
             {t("subtitle")}
           </p>
           <h1
-            className="text-4xl sm:text-5xl text-warm-100"
+            className="text-4xl sm:text-5xl lg:text-6xl text-[var(--color-text-light)] leading-tight"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             {t("title")}
@@ -32,9 +32,11 @@ export default function OffertePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-warm-50">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-stone-600 leading-relaxed mb-8">{t("intro")}</p>
+      <section className="py-20 sm:py-28 bg-[var(--color-bg)]">
+        <div className="max-w-[640px] mx-auto px-6 lg:px-10">
+          <p className="text-[var(--color-text-muted)] leading-relaxed mb-10 text-[15px]">
+            {t("intro")}
+          </p>
           <ContactForm type="quote" />
         </div>
       </section>

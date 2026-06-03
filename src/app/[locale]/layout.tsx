@@ -10,7 +10,7 @@ import { Footer } from "@/components/Footer";
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
 });
 
 const dmSerif = DM_Serif_Display({
@@ -36,10 +36,7 @@ export async function generateMetadata({
     metadataBase: new URL("https://hettolhek.nl"),
     alternates: {
       canonical: "/",
-      languages: {
-        nl: "/nl",
-        en: "/en",
-      },
+      languages: { nl: "/nl", en: "/en" },
     },
   };
 }
@@ -56,7 +53,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${dmSans.variable} ${dmSerif.variable}`}>
-      <body className="min-h-screen flex flex-col bg-warm-50 text-stone-900 antialiased font-[var(--font-sans)]">
+      <body className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] antialiased font-[var(--font-sans)]">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <main className="flex-1">{children}</main>
